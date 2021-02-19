@@ -79,50 +79,49 @@
 	- Статус заказа после подтверждения
 	  При нажатии на кнопку "Подтвердить" на последнем этапе оформления заказа, заказу будет установлен выбранный статус
    
-  - Статус заказа после неудачной оплаты.
-    Если Payeer вернет покупателя после неудачного платежа, заказу будет установлен выбранный статус.
+  - Order status after unsuccessful payment.
+    If Payeer returns the buyer after an unsuccessful payment, the order will be set to the selected status.
     
-  - Статус заказа для отсроченной оплаты.
-    После проверки заказа менеджер магазина выставит данный статус, покупатель будет уведомлен по e-mail и сможет оплатить заказ.
-    Также, ссылка на оплату появится в личном кабинете покупателя в разделе "Мои заказы".
-    БУДЬТЕ ВНИМАТЕЛЬНЫ!
-    Если данный статус будет совпадать со "статус заказа после подтверждения" - режим отсроченной оплаты будет отключен и покупатели
-    будут перенаправляться на сайт "Единой Кассы" для оплаты сразу после нажатия на кнопку "Оформить заказ".
+  - Order status for deferred payment.
+    After checking the order, the store manager will set this status, the buyer will be notified by e-mail and will be able to pay for the order.
+    Also, a link to payment will appear in the buyer's personal account in the "My orders" section.
+    BE CAREFUL!
+    If this status matches the "order status after confirmation" - the deferred payment mode will be disabled and customers
+    will be redirected to the "United Checkout" website for payment immediately after clicking on the "Checkout" button.
     
-  - Режим отсроченной оплаты.
-    При включенном режиме отсроченной (отложенной) оплаты покупатель сможет оплатить заказ только после проверки заказа менеджером магазина.
-    Если Вам необходимо, чтобы у покупателя была возможность произвести оплату сразу после оформления заказа без подтверждения менеджером -
-    не включайте эту опцию.
+  - Deferred payment mode.
+    When the delayed (deferred) payment mode is enabled, the buyer will be able to pay for the order only after the order is checked by the store manager.
+    If you need the buyer to be able to make payment immediately after placing the order without confirmation by the manager -
+    do not enable this option.
 
-  - Название.
-    Название метода оплаты на странице оформления заказа.
-    ВНИМАНИЕ!!! Для Opencart/ocStore v1.5.1.3 и ниже есть ограничение: не переименовывайте название метода оплаты, если включена отсроченная
-    оплата и в системе присутствуют не оплаченные отсроченные заказы. В противном случае, покупатели, не успевшие оплатить отсроченные заказы,
-    никогда не смогут их оплатить.
+  - Title.
+    The name of the payment method on the checkout page.
+    ATTENTION!!! There is a limitation for Opencart / ocStore v1.5.1.3 and below: do not rename the name of the payment method if deferred
+    payment and there are unpaid deferred orders in the system. Otherwise, customers who fail to pay for deferred orders will
+    will never be able to pay them.
     
-  - Инструкция по оплате.
-    Инструкция по оплате выводится при подтверждении заказа. Если поле не заполнено - инструкция по оплате выводиться не будет.
+  - Payment instructions.
+    Payment instructions are displayed upon order confirmation. If the field is not filled in, payment instructions will not be displayed.
 
-  - Отображать иконку "Оплатить заказ" в ЛК покупателя, если оплата заказа прервана.
-    Как это работает? Покупатель перешел на сайт платежной системы и не стал оплачивать заказ (передумал, не хватило денег,
-    отключили электричество в доме или офисе и пр.). Тогда в его Личном Кабинете (ЛК) в списке истории заказов появится иконка "$",
-    нажав на которую покупатель сможет снова попробовать оплатить свой заказ. Иконка появится только в том случае, если текущий статус
-    заказа покупателя совпадает со статусом заказа, указанных в полях "Статус заказа после подтверждения" и "Статус заказа после неудачной оплаты".
+  - Display the "Pay for order" icon in the buyer's personal account if the payment for the order is interrupted.
+    How it works? The buyer went to the website of the payment system and did not pay for the order (changed his mind, did not have enough money,
+    turned off the electricity in the house or office, etc.). Then an icon "$" will appear in his Personal Account (LC) in the order history list,
+    by clicking on which the buyer can again try to pay for his order. The icon will only appear if the current status is
+    Buyer's order matches the order status specified in the "Order status after confirmation" and "Order status after unsuccessful payment" fields.
     
-  - Текст кнопки button_confirm ("Потвердить заказ").
-    Кнопка выводится на последнем этапе оформления заказа. При нажатии на нее заказ будет сформирован окончательно и покупатель будет отправлен
-    для оплаты на сайт платежной системы (если режим отсроченной оплаты отключен).
+  - The text of the button is button_confirm ("Confirm order").
+    The button is displayed at the last stage of ordering. When you click on it, the order will be finalized and the buyer will be sent
+    for payment to the website of the payment system (if the deferred payment mode is disabled).
     
-  - Свой шаблон письма покупателю об успешной оплате.
-    Если включено - после успешной оплаты покупателю на e-mail придет письмо, шаблон которого можно настроить ниже.
-    Если выключено - будет отправляться стандартное в Opencart письмо об изменении заказа.
-    Поддерживаются переменные FastTemplate.
+  - Your template for a letter to the buyer about successful payment.
+    If enabled - after successful payment, the buyer will receive an e-mail, the template of which can be customized below.
+    If disabled, a standard Opencart order change letter will be sent.
+    FastTemplate variables are supported.
 
-  - Свой шаблон письма покупателю о неудачной оплате.
-    Если включено - при неудачной оплате покупателю на e-mail придет письмо, шаблон которого можно настроить ниже.
-    Если выключено - будет отправляться стандартное в Opencart письмо об изменении заказа.
-    Поддерживается переменные FastTemplate.
-
+  - Your own template for a letter to the buyer about an unsuccessful payment.
+    If enabled - in case of unsuccessful payment, the buyer will receive an e-mail, the template of which can be customized below.
+    If disabled, a standard Opencart order change letter will be sent.
+    FastTemplate variables are supported. 
 
 - Send an e-mail notification to the administrator about successful payment.
     If enabled, the administrator and IM managers will be notified by e-mail about successful payment by the client. Additional
