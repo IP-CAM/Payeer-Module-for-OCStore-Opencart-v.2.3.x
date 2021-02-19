@@ -173,7 +173,8 @@
     Successful payment URL;
     Unsuccessful payment URL;
     Handler URL;
-    Their values ​​are specified in the module settings (Administrative panel -> Add-ons -> Payment -> Payeer payment system -> "Information" tab).
+    Their values ​​are specified in the module settings 
+    (Administrative panel -> Add-ons -> Payment -> Payeer payment system -> "Information" tab).
     BE CAREFUL!!! When "copy-pasting" in the browser, make sure that there are no extra spaces at the beginning or end of URLs!
           
 (c) Shoputils (http://opencart.shoputils.ru) 2010 - 2016
