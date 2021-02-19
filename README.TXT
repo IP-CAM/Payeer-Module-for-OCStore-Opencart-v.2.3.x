@@ -83,14 +83,16 @@
     If Payeer returns the buyer after an unsuccessful payment, the order will be set to the selected status.
     
   - Order status for deferred payment.
-    After checking the order, the store manager will set this status, the buyer will be notified by e-mail and will be able to pay for the order.
+    After checking the order, the store manager will set this status, the buyer will be notified by e-mail and will be able 
+    to pay for the order.
     Also, a link to payment will appear in the buyer's personal account in the "My orders" section.
     BE CAREFUL!
     If this status matches the "order status after confirmation" - the deferred payment mode will be disabled and customers
     will be redirected to the "United Checkout" website for payment immediately after clicking on the "Checkout" button.
     
   - Deferred payment mode.
-    When the delayed (deferred) payment mode is enabled, the buyer will be able to pay for the order only after the order is checked by the store manager.
+    When the delayed (deferred) payment mode is enabled, the buyer will be able to pay for the order only after the order 
+    is checked by the store manager.
     If you need the buyer to be able to make payment immediately after placing the order without confirmation by the manager -
     do not enable this option.
 
