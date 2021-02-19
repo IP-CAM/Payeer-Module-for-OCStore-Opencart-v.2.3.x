@@ -157,7 +157,8 @@
     Example: 3111827
 
   - The secret key
-    The secret key for notifying about the execution of the payment, which is used to verify the integrity of the information received and to uniquely identify the sender
+    The secret key for notifying about the execution of the payment, which is used to verify the 
+    integrity of the information received and to uniquely identify the sender
     Must match the secret key specified in your Payeer account: "Account -> Store -> Settings".
     Example: iUqJPrkQkdbECTH5.
 
