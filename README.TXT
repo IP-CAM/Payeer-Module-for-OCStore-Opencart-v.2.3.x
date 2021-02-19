@@ -1,80 +1,80 @@
-1. О модуле Shoputils.Payeer 2.0.x-2.1.x-2.2.x - v2.3 (Модуль оплаты "Платежная система PAYEER")
+1. About the module Shoputils.Payeer 2.0.x-2.1.x-2.2.x - v2.3 (Payment module "Payment system PAYEER")
 
-  Модуль оплаты "Payeer" позволяет принимать платежи через систему
+  The "Payeer" payment module allows you to accept payments through the system
   Payeer - http://payeer.com/.
 
-  Возможности модуля:
-  - Отсроченная (отложенная) оплата;
-  - Статус заказа при подтверждении, оплате и отмене заказа;
-  - Установка минимальной и максимальной суммы заказа, при которой модуль будет включен;
-  - Управление шаблонами e-mail оповещений о результатах оплаты покупателей и администраторов интернет-магазина;
-  - Произвольное название метода оплаты на странице оформления заказа;
-  - Вывод инструкции по оплате на странице подтверждении заказа;
-  - Ведение журнала запросов от сервера "PAYEER";
-  - Выбор (установка) валюты PAYEER;
-  - Информация по настройке параметров Payeer на закладке "Информация";
-  - Совместимость с модулем "Заказ и регистрация Simple"
+  Module features:
+  - Deferred (deferred) payment;
+  - Order status when confirming, paying and canceling the order;
+  - Setting the minimum and maximum order amount at which the module will be enabled;
+  - Manage templates of e-mail notifications about the results of payment for buyers and administrators of the online store;
+  - Arbitrary name of the payment method on the checkout page;
+  - Display of payment instructions on the order confirmation page;
+  - Keeping a log of requests from the server "PAYEER";
+  - Selection (installation) of the PAYEER currency;
+  - Information on configuring Payeer parameters on the "Information" tab;
+  - Compatible with the module "Order and Registration Simple"
   
-  Посмотреть как работает и настраивается модуль можно по адресу:
+  You can see how the module works and is configured at:
   http://opencart.shoputils.ru/demo/20
-  http://opencart.shoputils.ru/demo/20/admin/ (Логин: demo, Пароль: demo)
+  http://opencart.shoputils.ru/demo/20/admin/ (Login: demo, Password: demo)
    
-2. Установка модуля
+2. Installing the module
 
-   2.1 Распакуйте архив, скопируйте содержимое директории upload в папку с установленным Opencart 2.0.x и нажмите 
-     "Активировать" в "Панель администратора" - "Дополнения" - "Оплата" - "Платежная система PAYEER, v2.1"
+   2.1 Unpack the archive, copy the contents of the upload directory to the folder with installed Opencart 2.0.x and click
+     "Activate" in "Admin Panel" - "Add-ons" - "Payment" - "Payment system PAYEER, v2.1"
 
-   2.2 Для корректной работы отсроченной оплаты необходимо установить OCMOD-расширение модуля.
-     В "Панель администратора" - "Модули" - "Установка расширений" нажмите кнопку "Загрузить"
-     и выберите файл ocmod/ваша_версия_opencart/ocmod_shoputils_payeer_laterpay.ocmod.xml из дистрибутива.
-     После появления надписи "Модуль успешно установлен!" необходимо перейти в
-     "Панель администратора" - "Модули" - "Модификаторы" и нажать кнопку "Обновить"
-     (см. рис. http://opencart.shoputils.ru/image/data/install/rk_install_oc2.0_1.png )
+   2.2 For the deferred payment to work correctly, you need to install the OCMOD extension of the module.
+     In the "Admin Panel" - "Modules" - "Install Extensions" click the "Download" button
+     and select the file ocmod / your_opencart_version / ocmod_shoputils_payeer_laterpay.ocmod.xml from the distribution.
+     After the message "The module has been successfully installed!" need to go to
+     "Admin Panel" - "Modules" - "Modifiers" and click the "Update" button
+     (see fig. http://opencart.shoputils.ru/image/data/install/rk_install_oc2.0_1.png)
      
-   2.3 В "Панель администратора" - "Дополнения" - "Оплата" - "Платежная система PAYEER, v2.0" Нажмите "Редактировать"
-     и настройте модуль оплаты для приема платежей через "PAYEER" (см. п.3).
+   2.3 In the "Admin Panel" - "Add-ons" - "Payment" - "Payment system PAYEER, v2.0" Click "Edit"
+     and configure the payment module to accept payments through "PAYEER" (see item 3).
      
-   2.4 Модуль имеет отображение иконок оплаты. Чтобы они показывались при выборе методов оплаты на страницах магазина,
-     необходимо исправить следующий файл (правку можно пропустить, если она уже существует, если используется движок ocStore версии 2.1.0.2.1
-     и выше или если используется модуль "Simple - упрощенная регистрация и заказ"):
+   2.4 The module has a display of payment icons. To show them when choosing payment methods on the store pages,
+     you need to fix the following file (you can skip the edit if it already exists if you are using the ocStore engine version 2.1.0.2.1
+     and higher or if the "Simple - simplified registration and ordering" module is used):
      
-        Для версий 2.0 - 2.2 - catalog/view/theme/{ваша_тема}/template/checkout/payment_method.tpl
+        For versions 2.0 - 2.2 - catalog / view / theme / {your_theme} /template/checkout/payment_method.tpl
           
-          Сразу после блока:
-				  
-        <?php foreach ($payment_methods as $payment_method) { ?>
-        <div class="radio">
+          Right after the block:
+
+        <? php foreach ($ payment_methods as $ payment_method) {?>
+        <div class = "radio">
           <label>
-            <?php if ($payment_method['code'] == $code || !$code) { ?>
-            <?php $code = $payment_method['code']; ?>
-            <input type="radio" name="payment_method" value="<?php echo $payment_method['code']; ?>" checked="checked" />
-            <?php } else { ?>
-            <input type="radio" name="payment_method" value="<?php echo $payment_method['code']; ?>" />
-            <?php } ?>
-            <?php echo $payment_method['title']; ?>
-            <?php if ($payment_method['terms']) { ?>
-            (<?php echo $payment_method['terms']; ?>)
-            <?php } ?>
-				  
-          Добавить следующие строки:
+            <? php if ($ payment_method ['code'] == $ code ||! $ code) {?>
+            <? php $ code = $ payment_method ['code']; ?>
+            <input type = "radio" name = "payment_method" value = "<? php echo $ payment_method ['code'];?>" checked = "checked" />
+            <? php} else {?>
+            <input type = "radio" name = "payment_method" value = "<? php echo $ payment_method ['code'];?>" />
+            <? php}?>
+            <? php echo $ payment_method ['title']; ?>
+            <? php if ($ payment_method ['terms']) {?>
+            (<? php echo $ payment_method ['terms'];?>)
+            <? php}?>
 
-        <?php //Shoputils Payment Modules Begin ?>
-        <?php if (isset($payment_method['description'])) { ?>
-        <br /><small><?php echo $payment_method['description']; ?></small>
-        <?php } ?>
-        <?php //Shoputils Payment Modules End ?>
+          Add the following lines:
+
+        <? php // Shoputils Payment Modules Begin?>
+        <? php if (isset ($ payment_method ['description'])) {?>
+        <br /> <small> <? php echo $ payment_method ['description']; ?> </small>
+        <? php}?>
+        <? php // Shoputils Payment Modules End?>
 
 
-3. Настройка модуля
+3. Module configuration
 
-  - Статус
-	
-  - Отображать модуль только залогинненым администраторам
-    Если опция включена, то модуль будет доступен при оформлении заказа только администратору, если он залогинен
-    в админ-панели. Это удобно, если необходимо не показывать модуль покупателям на время тестирования и настройки.
+  - Status
 
-	- Статус заказа после оплаты
-    После успешной оплаты заказа, заказу будет установлен выбранный статус.
+  - Display the module only for logged in administrators
+    If the option is enabled, the module will be available at checkout only to the administrator if he is logged in
+    in the admin panel. This is useful if you need not to show the module to customers during testing and configuration.
+
+- Order status after payment
+    After successful payment of the order, the selected status will be set to the order.
 	
 	- Статус заказа после подтверждения
 	  При нажатии на кнопку "Подтвердить" на последнем этапе оформления заказа, заказу будет установлен выбранный статус
@@ -123,56 +123,56 @@
     Если выключено - будет отправляться стандартное в Opencart письмо об изменении заказа.
     Поддерживается переменные FastTemplate.
 
-  - Отправлять администратору уведомление по e-mail об успешной оплате.
-    Если включено - администратору и менеджерам ИМ будет отправляться уведомление по e-mail об успешной оплате клиентом. Дополнительные
-    e-mail адреса для оповещений Вы можете добавить в "Система->Настройки->Изменить->вкладка "Почта".
-    Поддерживается переменные FastTemplate.
 
-  - Отправлять администратору уведомление по e-mail о неудачной оплате.
-    Если включено - администратору и менеджерам ИМ будет отправляться уведомление по e-mail о неудачной оплате клиентом.
-    Дополнительные e-mail адреса для оповещений Вы можете добавить в "Система->Настройки->Изменить->вкладка "Почта"
-    Поддерживается FastTemplate.
+- Send an e-mail notification to the administrator about successful payment.
+    If enabled, the administrator and IM managers will be notified by e-mail about successful payment by the client. Additional
+    You can add e-mail addresses for notifications in "System-> Settings-> Edit-> Mail" tab.
+    FastTemplate variables are supported.
 
-    Список возможных значений FastTemplate:
-    № заказа - {order_id}
-    Название магазина	- {store_name}
-    Логотип магазина - {logo}
-    Список купленных товаров - {products}
-    Итого - {total}
-    Имя Отчество покупателя - {customer_firstname}
-    Фамилия покупателя - {customer_lastname}
-    Группа покупателя - {customer_group}
-    e-mail покупателя - {customer_email}
-    Телефон покупателя - {customer_telephone}
-    Статус заказа - {order_status}
-    Комментарий покупателя к заказу - {comment}
-    IP адрес покупателя - {ip}
-    Дата добавления заказа - {date_added}
-    Дата изменения заказа - {date_modified}
+  - Send an e-mail notification about unsuccessful payment to the administrator.
+    If enabled, the administrator and IM managers will receive a notification by e-mail about unsuccessful payment by the client.
+    You can add additional e-mail addresses for notifications in "System-> Settings-> Change-> Mail" tab
+    FastTemplate is supported.
 
-  - Идентификатор магазина (ID)
-    Идентификатор магазина зарегистрированного в системе «PAYEER». 
-    Узнать его можно в аккаунте Payeer: "Аккаунт -> Магазин -> Настройки".
-    Пример: 3111827
-	
-  - Секретный ключ
-    Секретный ключ оповещения о выполнении платежа, который используется для проверки целостности полученной информации и однозначной идентификации отправителя.
-    Должен совпадать с секретным ключем, указанным в аккаунте Payeer: "Аккаунт -> Магазин -> Настройки".
-    Пример: iUqJPrkQkdbECTH5.
-	
-  - Валюта магазина
-    Валюта, в которой магазин передает сумму платежа на платежный 
-    шлюз "Payeer"
-	
-  - Журнал:
-  - Журнал запросов от Payeer сохраняется в файле: system/logs/shoputils_payeer.log
+    List of possible FastTemplate values:
+    Order number - {order_id}
+    Store name - {store_name}
+    Shop logo - {logo}
+    List of purchased products - {products}
+    Total - {total}
+    Name Patronymic of the customer - {customer_firstname}
+    Customer surname - {customer_lastname}
+    Customer group - {customer_group}
+    customer e-mail - {customer_email}
+    Customer phone - {customer_telephone}
+    Order status - {order_status}
+    Buyer's comment to the order - {comment}
+    Buyer's IP address - {ip}
+    Order adding date - {date_added}
+    Order modification date - {date_modified}
+
+  - Shop ID (ID)
+    The identifier of the store registered in the PAYEER system.
+    You can find it out in your Payeer account: "Account -> Store -> Settings".
+    Example: 3111827
+
+  - The secret key
+    The secret key for notifying about the execution of the payment, which is used to verify the integrity of the information received and to uniquely identify the sender
+    Must match the secret key specified in your Payeer account: "Account -> Store -> Settings".
+    Example: iUqJPrkQkdbECTH5.
+
+  - Store currency
+    The currency in which the merchant transfers the payment amount to the payment
+    gateway "Payeer"
+
+  - Magazine:
+  - The request log from Payeer is saved in the file: system / logs / shoputils_payeer.log
   
-    В аккаунте Payeer ("Аккаунт -> Магазин -> Настройки") необходимо указать следующие URL: 
-    URL успешной оплаты;
-    URL неуспешной оплаты;
-    URL обработчика;
-    Их значения указаны в настройках модуля (Административная панель -> Дополнения -> Оплата -> Платежная система Payeer -> вкладка "Информация").
-    БУДЬТЕ ВНИМАТЕЛЬНЫ!!! При "копи-пасте" в браузере, следите, чтобы не было лишних пробелов в начале или конце URL`ов!
+    In your Payeer account ("Account -> Store -> Settings"), you must specify the following URLs:
+    Successful payment URL;
+    Unsuccessful payment URL;
+    Handler URL;
+    Their values ​​are specified in the module settings (Administrative panel -> Add-ons -> Payment -> Payeer payment system -> "Information" tab).
+    BE CAREFUL!!! When "copy-pasting" in the browser, make sure that there are no extra spaces at the beginning or end of URLs!
           
-(с) Shoputils ( http://opencart.shoputils.ru ) 2010 - 2016
-     
+(c) Shoputils (http://opencart.shoputils.ru) 2010 - 2016
